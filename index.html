@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" rx="20" fill="%230A1A3A" /><path d="M25 50 H40 L45 35 L55 65 L60 50 H75" stroke="%2300F5D0" stroke-width="8" fill="none" stroke-linecap="round" /></svg>' />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MediCare Solutions Hub 2.0</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Base styling for preloader */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #0A1A3A;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.5s ease-out;
+        }
+        .ecg-path {
+            stroke: #00F5D0;
+            stroke-width: 4;
+            fill: none;
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: draw-ecg 2s linear forwards;
+        }
+        @keyframes draw-ecg {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+        .preloader-hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        /* Custom scrollbar for a modern look */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0A1A3A; }
+        ::-webkit-scrollbar-thumb { background: #008f7e; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #00F5D0; }
+    </style>
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        navy: {
+                            DEFAULT: '#0A1A3A',
+                            '900': '#0A1A3A',
+                            '800': '#102A57',
+                            '700': '#1A3C7A',
+                        },
+                        teal: {
+                            DEFAULT: '#00F5D0',
+                            '400': '#00F5D0',
+                            '500': '#00d9b8',
+                            '600': '#00bfa1',
+                        },
+                        light: '#F8F9FA',
+                        dark: '#0A1A3A',
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-out forwards',
+                        'pulse-heart': 'pulse-heart 1.5s infinite ease-in-out',
+                        'ticker-scroll': 'ticker-scroll 20s linear infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: 0, transform: 'translateY(10px)' },
+                            '100%': { opacity: 1, transform: 'translateY(0)' },
+                        },
+                        'pulse-heart': {
+                            '0%': { transform: 'scale(1)', boxShadow: '0 0 0 0 rgba(0, 245, 208, 0.4)' },
+                            '70%': { transform: 'scale(1.05)', boxShadow: '0 0 10px 15px rgba(0, 245, 208, 0)' },
+                            '100%': { transform: 'scale(1)', boxShadow: '0 0 0 0 rgba(0, 245, 208, 0)' },
+                        },
+                        'ticker-scroll': {
+                          '0%': { transform: 'translateX(0%)' },
+                          '100%': { transform: 'translateX(-50%)' },
+                        }
+                    }
+                },
+            },
+        }
+    </script>
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.1.0/",
+    "react": "https://esm.sh/react@^19.1.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.1.0/",
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.6.3",
+    "@google/genai": "https://esm.sh/@google/genai@^1.9.0",
+    "framer-motion": "https://esm.sh/framer-motion@^11.3.2",
+    "gsap": "https://esm.sh/gsap@^3.12.5",
+    "ogl": "https://esm.sh/ogl@^0.0.109"
+  }
+}
+</script>
+</head>
+<body class="bg-navy-900 font-sans text-gray-300">
+<div id="preloader">
+    <svg width="200" height="100" viewBox="0 0 200 100">
+        <path class="ecg-path" d="M0 50 H40 L50 20 L70 80 L80 50 H120 L130 35 L145 65 L155 50 H200" />
+    </svg>
+</div>
+<div id="root"></div>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>

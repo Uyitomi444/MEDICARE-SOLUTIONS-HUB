@@ -1,0 +1,9 @@
+{
+  "name": "MediCare Solutions Hub",
+  "description": "A digital platform for patients to book virtual doctor appointments, access health resources, and purchase medical products.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ],
+  "prompt": ""
+}
