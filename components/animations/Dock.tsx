@@ -20,7 +20,8 @@ import React, {
 } from "react";
 
 interface DockItemProps {
-  children: ReactNode;
+  // Make children optional to avoid "missing children" errors at call sites
+  children?: ReactNode;
   className?: string;
   onClick?: () => void;
   mouseX: MotionValue<number>;
@@ -28,6 +29,8 @@ interface DockItemProps {
   distance: number;
   magnification: number;
   baseItemSize: number;
+  // Explicitly add key to props interface to satisfy compiler when passing it in map()
+  key?: React.Key;
 }
 
 function DockItem({
@@ -75,15 +78,17 @@ function DockItem({
       role="button"
       aria-haspopup="true"
     >
+      {/* Use cloneElement to pass isHovered to children like DockIcon and DockLabel */}
       {Children.map(children, (child) =>
-        isValidElement(child) ? cloneElement(child as ReactElement, { isHovered }) : child
+        isValidElement(child) ? cloneElement(child as ReactElement<any>, { isHovered }) : child
       )}
     </motion.div>
   );
 }
 
 interface DockLabelProps {
-  children: ReactNode;
+  // Make children optional to avoid "missing children" errors at call sites
+  children?: ReactNode;
   className?: string;
   isHovered?: MotionValue<number>;
 }
@@ -120,7 +125,8 @@ function DockLabel({ children, className = "", isHovered }: DockLabelProps) {
 }
 
 interface DockIconProps {
-    children: ReactNode;
+    // Make children optional to avoid "missing children" errors at call sites
+    children?: ReactNode;
     className?: string;
     isHovered?: MotionValue<number>;
 }

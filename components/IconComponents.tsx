@@ -3,7 +3,7 @@ import React from 'react';
 // A modern, stylized stethoscope
 export const StethoscopeIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
   <svg {...props} viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-    <path fillRule="evenodd" clipRule="evenodd" d="M17 3a4 4 0 00-4 4v2.068A5.5 5.5 0 008.5 14h-1A3.5 3.5 0 004 17.5V18a3 3 0 003 3h.5a3 3 0 003-3v-.5A3.5 3.5 0 007 14v- relazione.5A3.5 3.5 0 0110.5 10H13V7a2 2 0 012-2h2a2 2 0 012 2v3h.5a2.5 2.5 0 110 5H19a2 2 0 100-4h-.5V7a4 4 0 00-4-4zM7.5 19a1 1 0 100-2 1 1 0 000 2z"/>
+    <path fillRule="evenodd" clipRule="evenodd" d="M17 3a4 4 0 00-4 4v2.068A5.5 5.5 0 008.5 14h-1A3.5 3.5 0 004 17.5V18a3 3 0 003 3h.5a3 3 0 003-3v-.5A3.5 3.5 0 007 14v-3.5A3.5 3.5 0 0110.5 10H13V7a2 2 0 012-2h2a2 2 0 012 2v3h.5a2.5 2.5 0 110 5H19a2 2 0 100-4h-.5V7a4 4 0 00-4-4zM7.5 19a1 1 0 100-2 1 1 0 000 2z"/>
   </svg>
 );
 
